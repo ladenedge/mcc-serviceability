@@ -189,20 +189,20 @@ describe('state getter', function () {
 });
 
 describe('state setter', function () {
-    var svc = new Serviceability(validConfig);
-    var validState = 'key=value';
-
     badStringValues.forEach(val => {
         it(`should throw when value is '${val}'`, function () {
+            var svc = new Serviceability(validConfig);
             assert.throws(() => { svc.state = val; });
         });
     });
     it('should set cookie', function () {
+        var svc = new Serviceability(validConfig);
         svc.state = 'key=value';
         var st = svc.cookies.getCookieString(validConfig.endpoint);
         assert.equal(st, 'key=value');
     });
     it('should set multiple cookies', function () {
+        var svc = new Serviceability(validConfig);
         svc.state = 'key1=value1; key2=value2';
         var st = svc.cookies.getCookieString(validConfig.endpoint);
         assert.equal(st, 'key1=value1; key2=value2');
