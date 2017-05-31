@@ -63,6 +63,11 @@ describe('constructor', function () {
     it('should not throw on valid config', function() {
         assert.doesNotThrow(() => new Serviceability(validConfig));
     });
+    it('should set state', function () {
+        var svc = new Serviceability(validConfig, 'key=value');
+        var st = svc.cookies.getCookieString(validConfig.endpoint);
+        assert.equal(st, 'key=value');
+    });
 });
 
 ['check', 'select'].forEach(ep => {
@@ -170,5 +175,26 @@ describe('constructor', function () {
                 });
             });
         });
+    });
+});
+
+describe('state getter', function () {
+    var svc = new Serviceability(validConfig);
+    var validCookie = request.cookie('key=value');
+
+    it('should return cookie', function () {
+        svc.cookies.setCookie(validCookie, validConfig.endpoint);
+        assert.equal(svc.state, 'key=value');
+    });
+});
+
+describe('state setter', function () {
+    var svc = new Serviceability(validConfig);
+    var validState = 'key=value';
+
+    it('should set cookie', function () {
+        svc.state = 'key=value';
+        var st = svc.cookies.getCookieString(validConfig.endpoint);
+        assert.equal(st, 'key=value');
     });
 });

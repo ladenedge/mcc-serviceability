@@ -26,9 +26,11 @@ class Serviceability {
      * @param {string} config.endpoint Full endpoint for the MCC serviceability API.
      * @param {boolean} [config.verbose] Whether to output detailed logging to stderr.
      */
-    constructor(config) {
+    constructor(config, savedState) {
         this.config = validator.validateConfig(config, configSchema);
         this.cookies = request.jar();
+        if (savedState)
+            this.state = savedState;
     }
 
     /**
@@ -59,6 +61,22 @@ class Serviceability {
      */
     select(address, callback) {
         serviceability('/shop/select', this, address, callback);
+    }
+
+    /**
+     * Gets a string containing the state of the service.
+     * @returns {string} Opaque string containing the state of the service.
+     */
+    get state() {
+        return this.cookies.getCookieString(this.config.endpoint);
+    }
+
+    /**
+     * Sets the service to a previously saved state.
+     * @param {string} st The new state of the service.
+     */
+    set state(st) {
+        this.cookies.setCookie(st, this.config.endpoint);
     }
 };
 
