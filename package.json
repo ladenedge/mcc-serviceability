@@ -1,6 +1,6 @@
 {
   "name": "mcc-serviceability",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Client-side module for the MCC serviceability check.",
   "author": "Jay Miller <jmiller@contactsolutions.com>",
   "license": "MIT",
