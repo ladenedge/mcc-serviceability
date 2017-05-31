@@ -106,7 +106,7 @@ describe('constructor', function () {
         describe('request', function () {
             it(`should get correct url path`, function () {
                 svc[ep](validAddress);
-                assert.equal(this.post.firstCall.args[0], '/' + ep);
+                assert.equal(this.post.firstCall.args[0], '/shop/' + ep);
             });
             [
                 { key: 'baseUrl', val: validConfig.endpoint },
