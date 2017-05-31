@@ -76,7 +76,11 @@ class Serviceability {
      * @param {string} st The new state of the service.
      */
     set state(st) {
-        this.cookies.setCookie(st, this.config.endpoint);
+        st = validator.validateString(st, 'st');
+        st.split(';').forEach(kvp => {
+            var cookie = request.cookie(kvp);
+            this.cookies.setCookie(cookie, this.config.endpoint);
+        });
     }
 };
 
