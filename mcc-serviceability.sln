@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "mcc-serviceability", "mcc-serviceability.njsproj", "{B9C08C59-2D21-4D9E-AA23-56CFBB1D87C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9C08C59-2D21-4D9E-AA23-56CFBB1D87C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9C08C59-2D21-4D9E-AA23-56CFBB1D87C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9C08C59-2D21-4D9E-AA23-56CFBB1D87C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9C08C59-2D21-4D9E-AA23-56CFBB1D87C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+{
+  "name": "mcc-serviceability",
+  "version": "1.0.0",
+  "description": "Client-side module for the MCC serviceability check.",
+  "author": {
+    "name": "Jay Miller",
+    "email": "jmiller@contactsolutions.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "deploy-prod": "npm run local-test && npm run version-patch && npm run push-tags",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "local-test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "version-patch": "npm version patch",
+    "push-tags": "git push --tags",
+    "doc": "jsdoc index.js && jsdoc2md index.js > out\\wiki.md"
+  },
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.13.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "sinon": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ladenedge/mcc-serviceability.git"
+  }
+}
