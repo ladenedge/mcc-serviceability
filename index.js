@@ -24,6 +24,7 @@ class Serviceability {
      * Constructs a Serviceability client with the supplied configuration.
      * @param {Object} config Configuration for the module.
      * @param {string} config.endpoint Full endpoint for the MCC serviceability API.
+     * @param {string} [config.proxy] Full endpoint for the proxy server to use for requests.
      * @param {boolean} [config.verbose] Whether to output detailed logging to stderr.
      */
     constructor(config, savedState) {
@@ -90,9 +91,8 @@ function serviceability(url, svc, address, callback) {
 
     var opts = {
         baseUrl: svc.config.endpoint,
-        jar: svc.cookies,
         proxy: svc.config.proxy,
-        rejectUnauthorized: !svc.config.proxy,
+        jar: svc.cookies,
         json: address
     };
 

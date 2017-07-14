@@ -130,6 +130,12 @@ describe('constructor', function () {
                     svc[ep](validAddress);
                     assert.equal(this.post.firstCall.args[1]['json'][key], validAddress[key]);
                 });
+                it(`should trim ${key} when it has extra whitespace`, function () {
+                    var addr = Object.assign({}, validAddress);
+                    addr[key] += '  ';
+                    svc[ep](addr);
+                    assert.equal(this.post.firstCall.args[1]['json'][key], validAddress[key]);
+                });
             });
         });
         describe('response', function () {
